@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ristoranti</title>
+    <script src="./connessioni.js"></script>
+    <script src="./funzioni.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/examples/dashboard/dashboard.css"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <!-- <div class="container-fluid">
+        <a href="./ristoranti.html">Ristoranti</a>
+    </div> -->
+    <div class="container-fluid">
+        <a href="./aggiungi-ristorante.html" class="btn btn-secondary">Aggiungi Ristorante</a>
+    </div>
+  </nav>
+    <!-- <a href="./aggiungi-recensione.html">Aggiungi Recensione</a><br>
+    <a href="./aggiungi-ristorante.html">Aggiungi Ristorante</a><br> -->
+    <div id="elenco">
+        <div id="ristoranti"></div>
+    </div>
+</body>
+<script>
+    //aggiungi ristorante funziona
+    //elenco ristoranti funziona
+    //mostra recensioni funziona ma non torna indietro
+    //manca aggiungere la recensione
+    //manca modificare il ristorante
+        var risultato = document.getElementById("elenco");
+        document.addEventListener('DOMContentLoaded', (event) => {
+        caricaRistoranti(risultato);
+        });
+</script>
+</html>

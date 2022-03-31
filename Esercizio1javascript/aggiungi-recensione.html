@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="./connessioni.js"></script>
+    <script src="./funzioni.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aggiungi Recensione</title>
+</head>
+<body>
+    <!-- As a link -->
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a href="./ristoranti.html">Ristoranti</a>
+    </div>
+    <div class="container-fluid">
+        <a href="./aggiungi-ristorante.html">Aggiungi Ristorante</a>
+    </div>
+  </nav>
+  
+  <!-- As a heading -->
+    <!-- <a href="./ristoranti.html">Ristoranti</a><br>
+    <a href="./aggiungi-ristorante.html">Aggiungi Ristorante</a><br> -->
+    <form action="#" method="POST" id="aggiungiRecensione">
+        <legend>Aggiungi Recensione</legend>
+        <label for="nomeUtente">Nome Utente</label>
+        <input type="text" name="nomeUtente" id="nomeUtente" required><br>
+        <label for="testo">Recensione</label>
+        <textarea name="testo" id="testo" cols="30" rows="10" required>scrivi qui la tua recensione</textarea><br>
+        <label for="voto">Voto</label>
+        <input type="number" name="voto" id="voto" min="0" max="5" required><br>
+        <button type="submit" class="btn btn-primary">Invia Recensione</button>
+    </form>
+    <div>
+        <div id="recensioni"></div>
+    </div>
+    <script>
+            var form = document.getElementById("aggiungiRecensione");
+            var risultato = document.getElementById("recensioni");
+
+            //  document.addEventListener('DOMContentLoaded', (event) => {
+            //    const urlSearchParams = new URLSearchParams(window.location.search);
+            //    const params = Object.fromEntries(urlSearchParams.entries());
+            //    caricaRistorante(params.id, risultato);
+            //  });
+
+            form.onsubmit = (event) => {
+            event.preventDefault();
+            const urlSearchParams = new URLSearchParams(window.location.search);
+            const params = Object.fromEntries(urlSearchParams.entries());
+            salvaRecensione(form, risultato, params.id);
+            };        
+    </script>
+</body>
+</html>
