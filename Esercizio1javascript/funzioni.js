@@ -103,27 +103,24 @@
             .catch((error) => stampaMessaggio(error, risultato));
       }
       deleteIcon.innerHTML = "Elimina";
-      //
+      // pulsante per mostrare a schermo le recensioni
       var mostraRec = document.createElement('button');
       mostraRec.className= "btn btn-dark";//cambiare colore pulsante
       mostraRec['rec-id']=ristorante.id;
       mostraRec.onclick = function(e){
           e.preventDefault();
+          var tasto = 0;
           let tap = new HttpClient();
           tap.get('https://ifts.adriasonline.com/ristoranti/'+this['rec-id'])
           .then((result)=>stampaRecensioni(result))
           .catch((error)=>stampaMessaggio(error,risultato));
+          tasto ++;
       }
       // pulsante aggiungi recensione
       var aggRec = document.createElement('button');
       aggRec.className = "btn btn-info";
       aggRec['aggRec-id'] = ristorante.id;
       aggRec.onclick = function(e){
-        // e.preventDefault();
-        // let tap = new HttpClient();
-        // tap.get('https://ifts.adriasonline.com/ristoranti/'+this['rec-id'])
-        // .then((result)=>aggiungiRecensione(result))
-        // .catch((error)=>stampaMessaggio(error,risultato));
         e.preventDefault();
         let client = new HttpClient();
         client.post("https://ifts.adriasonline.com/ristorante/"+ this["data-id"])
@@ -136,8 +133,6 @@
       editLink.className = "btn btn-warning";
       editLink.innerHTML = "Aggiungi Recensione";
 
-      //editLink.a="./modificaRistorante.html";
-      //var mostraRecensione = document.createElement('div');
       divButton.append(editLink);
       divButton.append(deleteIcon);
       //
@@ -169,14 +164,26 @@
       var spazio = document.getElementById('rec-'+ristorante.id);
       for(var i =0;i<ristorante.recensioni.length;i++){
           var contenitore = document.createElement('div');
+          contenitore.className='"row align-items-center"';
+          contenitore.style='margin: 2px 2px';
           var recensione = ristorante.recensioni[i];
-          contenitore.innerHTML="<div class='col-md border'>" + recensione['testo'] + "</div>" +
-          "<div class='col-md border'>" +recensione['nomeUtente']+ "</div>"
-          +"<div class='col-md border'>" +recensione['dataCreazione']+ "</div>";
-          contenitore.className='row bg-secondary';
+          contenitore.innerHTML= "<div class='border'>Recensione n: "+ (i+1) +"</div>" +"<div class='col border'>" + recensione['testo'] + "</div>" +
+          "<div class=' col border'>" +recensione['nomeUtente']+ "</div>"
+          +"<div class='col border'>" +recensione['dataCreazione']+ "</div>"
+          +"<div class='col border'>" +recensione['voto']+ "</div>";
+          if(i%2==0){
+            contenitore.className='column bg-primary';
+          } else {
+            contenitore.className='column bg-light';
+          }
+          //contenitore.style='margin: auto';
           spazio.append(contenitore);
+          if(i%2==0){
+            spazio.className='row bg-primary inline';
+          } else {
+            spazio.className='row bg-light inline';
+          }
         }
-        spazio.className='row bg-secondary inline';
   }
 
   //Funzione che stampa il messaggio in caso di errore durante il caricamento
