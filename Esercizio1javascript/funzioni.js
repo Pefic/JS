@@ -138,7 +138,7 @@
       //
       mostraRec.innerHTML='Recensioni';
       var recensioni = document.createElement('div');
-      recensioni.className= 'row d-none bg-secondary';//cambiare sfondo
+      recensioni.className= '.col d-none bg-secondary';//cambiare sfondo
       recensioni.id= 'rec-'+ristorante.id;
       divRow.append(divButton);
       rubrica.append(divRow);
@@ -164,7 +164,7 @@
       var spazio = document.getElementById('rec-'+ristorante.id);
       for(var i =0;i<ristorante.recensioni.length;i++){
           var contenitore = document.createElement('div');
-          contenitore.className='"row align-items-center"';
+          contenitore.className='"col align-items-center"';
           contenitore.style='margin: 2px 2px';
           var recensione = ristorante.recensioni[i];
           contenitore.innerHTML= "<div class='border'>Recensione n: "+ (i+1) +"</div>" +"<div class='col border'>" + recensione['testo'] + "</div>" +
@@ -176,12 +176,11 @@
           } else {
             contenitore.className='column bg-light';
           }
-          //contenitore.style='margin: auto';
           spazio.append(contenitore);
           if(i%2==0){
-            spazio.className='row bg-primary inline';
+            spazio.className='col bg-primary inline';
           } else {
-            spazio.className='row bg-light inline';
+            spazio.className='col bg-light inline';
           }
         }
   }
