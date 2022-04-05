@@ -167,10 +167,10 @@
           contenitore.className='"col align-items-center"';
           contenitore.style='margin: 2px 2px';
           var recensione = ristorante.recensioni[i];
-          contenitore.innerHTML= "<div class='border'>Recensione n: "+ (i+1) +"</div>" +"<div class='col border'>" + recensione['testo'] + "</div>" +
-          "<div class=' col border'>" +recensione['nomeUtente']+ "</div>"
-          +"<div class='col border'>" +recensione['dataCreazione']+ "</div>"
-          +"<div class='col border'>" +recensione['voto']+ "</div>";
+          contenitore.innerHTML= "<div class='border'>Recensione n: "+ (i+1) +"</div>" +"<div class='col border'>Recensione: " + recensione['testo'] + "</div>" +
+          "<div class=' col border'>Utente: " +recensione['nomeUtente']+ "</div>"
+          +"<div class='col border'>Data della recensione: " +recensione['dataCreazione']+ "</div>"
+          +"<div class='col border'>Voto: " +recensione['voto']+ "</div>";
           if(i%2==0){
             contenitore.className='column bg-primary';
           } else {
