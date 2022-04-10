@@ -109,12 +109,10 @@
       mostraRec['rec-id']=ristorante.id;
       mostraRec.onclick = function(e){
           e.preventDefault();
-          var tasto = 0;
-          let tap = new HttpClient();
-          tap.get('https://ifts.adriasonline.com/ristoranti/'+this['rec-id'])
-          .then((result)=>stampaRecensioni(result))
-          .catch((error)=>stampaMessaggio(error,risultato));
-          tasto ++;
+            let tap = new HttpClient();
+            tap.get('https://ifts.adriasonline.com/ristoranti/'+this['rec-id'])
+            .then((result)=>stampaRecensioni(result))
+            .catch((error)=>stampaMessaggio(error,risultato));
       }
       // pulsante aggiungi recensione
       var aggRec = document.createElement('button');
@@ -138,7 +136,7 @@
       //
       mostraRec.innerHTML='Recensioni';
       var recensioni = document.createElement('div');
-      recensioni.className= '.col d-none bg-secondary';//cambiare sfondo
+      recensioni.className= '.col inline bg-secondary';//cambiare sfondo
       recensioni.id= 'rec-'+ristorante.id;
       divRow.append(divButton);
       rubrica.append(divRow);
@@ -177,11 +175,6 @@
             contenitore.className='column bg-light';
           }
           spazio.append(contenitore);
-          if(i%2==0){
-            spazio.className='col bg-primary inline';
-          } else {
-            spazio.className='col bg-light inline';
-          }
         }
   }
 
